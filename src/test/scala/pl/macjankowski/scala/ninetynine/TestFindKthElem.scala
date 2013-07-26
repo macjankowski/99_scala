@@ -27,7 +27,7 @@ class TestFindKthElem extends FunSpec with ShouldMatchers with TableDrivenProper
   describe("FindKth elem") {
 
     forAll(wrongParams) { (col: Seq[Int], index: Int, res) =>
-      it(s"should throw exception for ${col.mkString(", ")}") {
+      it(s"should throw exception for index $index and collection [${col.mkString(", ")}]") {
         evaluating {
           FindKthElem.kthElem(index, col)
         } should produce[NoSuchElementException]
@@ -35,7 +35,7 @@ class TestFindKthElem extends FunSpec with ShouldMatchers with TableDrivenProper
     }
 
     forAll(intParams) { (col: Seq[Int], index: Int, res) =>
-      it(s"$index elem of ${col.mkString(", ")} should return $res") {
+      it(s"${index}th element of [${col.mkString(", ")}] should be $res") {
         FindKthElem.kthElem(index, col) should equal(res)
       }
     }
