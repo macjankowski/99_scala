@@ -48,8 +48,6 @@ class TestReverse extends FunSpec with ShouldMatchers with TableDrivenPropertyCh
         val after = ListReverse.reverseAny(collection)
         after should be(reversed)
 
-        println("collection.getClass(): " + collection.getClass())
-        println("after.getClass(): " + after.getClass())
         collection.getClass() should equal(after.getClass())
       }
     }
